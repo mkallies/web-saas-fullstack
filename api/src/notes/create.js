@@ -3,6 +3,7 @@ import { handler, dynamoDb } from '../utils'
 
 export const main = handler(async (event) => {
   const data = JSON.parse(event.body)
+
   const params = {
     TableName: process.env.tableName,
     // 'Item' contains the attributes of the item to be created
