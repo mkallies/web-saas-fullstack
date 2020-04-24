@@ -2,5 +2,10 @@
   "files.exclude": {
     "**/yarn.lock": true
   },
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/public": true,
+    "**/.cache": true
+  },
   "eslint.workingDirectories": ["./api", "./client"]
 }

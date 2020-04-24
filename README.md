@@ -25,3 +25,7 @@ npx degit mkallies/web-saas-fullstack <folder-name>
 - [] Change table name (custom block) in serverless.yml
 - [] Change or remove s3-bucket.yml, uncommet in resources block in serverless.yml if needed
 - [] Change cognito pool names in resources/cognito-user-pool.yml
+
+Frontend
+
+- [] Change gatsby-config site data
