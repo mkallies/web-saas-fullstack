@@ -31,7 +31,7 @@
     "serverless-dotenv-plugin": "^2.4.2",
     "serverless-offline": "^6.1.4",
     "serverless-plugin-warmup": "^4.9.0",
-    "serverless-prune-plugin": "^1.4.2"
+    "serverless-prune-plugin": "^1.4.3"
   },
   "dependencies": {
     "stripe": "^8.44.0",
