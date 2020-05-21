@@ -8559,13 +8559,13 @@ gatsby-page-utils@^0.2.6:
     lodash "^4.17.15"
     micromatch "^3.1.10"
 
-gatsby-plugin-manifest@^2.3.3:
-  version "2.3.6"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-manifest/-/gatsby-plugin-manifest-2.3.6.tgz#89c091a9cd7d221139c3881e8cf197242a8cb24c"
-  integrity sha512-B5z4z+akH9negZGUIoo7UUiHLL4BmQZ/2mI9g4GmoW/Zw5OA4QZOxF0kdy/vluVqxphJ6RdQDx0kIf1qCtBeZQ==
+gatsby-plugin-manifest@^2.4.8:
+  version "2.4.8"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-manifest/-/gatsby-plugin-manifest-2.4.8.tgz#c6834829a983ba423e7f8befce181bc0348703ff"
+  integrity sha512-7422d9K+27Iiq9wRw67S7Dldua0/TyMIeOOyPw5tqN8q9Ksm+p1yVse/35BvhGA3gjxIBoX7YczoVwXEdsGUEQ==
   dependencies:
-    "@babel/runtime" "^7.8.7"
-    gatsby-core-utils "^1.1.3"
+    "@babel/runtime" "^7.9.6"
+    gatsby-core-utils "^1.3.2"
     semver "^5.7.1"
     sharp "^0.25.1"
 
