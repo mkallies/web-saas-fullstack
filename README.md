@@ -13,7 +13,7 @@ Boilerplate taken from https://github.com/postlight/serverless-babel-starter
 ## Copying this project into a new repo
 
 ```
-npx degit mkallies/web-saas-fullstack <folder-name>
+npx degit --mode=git mkallies/web-saas-fullstack <folder-name>
 ```
 
 ## Checklist
