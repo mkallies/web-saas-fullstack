@@ -3,8 +3,10 @@ import PropTypes from 'prop-types'
 import { useStaticQuery, graphql } from 'gatsby'
 import { theme, ThemeProvider, CSSReset, Stack } from '@chakra-ui/core'
 import { Amplify } from 'aws-amplify'
+import Helmet from 'react-helmet'
 import { Header } from './header.tsx'
 import config from '../config/index.ts'
+import { UserProvider } from '../features/user/user.service.tsx'
 
 Amplify.configure({
   Auth: {
@@ -46,17 +48,22 @@ const Layout = ({ children }) => {
   return (
     <React.StrictMode>
       <ThemeProvider theme={theme}>
+        <Helmet>
+          <script src="https://js.stripe.com/v3/" />
+        </Helmet>
         <CSSReset />
-        <Header />
+        <UserProvider>
+          <Header />
 
-        <Stack as="main" maxWidth="2xl" mt="5rem">
-          {children}
-        </Stack>
-        <footer>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
-        </footer>
+          <Stack as="main" maxWidth="2xl" mt="5rem">
+            {children}
+          </Stack>
+          <footer>
+            © {new Date().getFullYear()}, Built with
+            {` `}
+            <a href="https://www.gatsbyjs.org">Gatsby</a>
+          </footer>
+        </UserProvider>
       </ThemeProvider>
     </React.StrictMode>
   )

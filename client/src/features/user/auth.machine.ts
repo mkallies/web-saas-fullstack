@@ -1,5 +1,7 @@
 import { Machine, assign } from 'xstate'
-import axios from 'axios'
+import { Auth } from 'aws-amplify'
+// import axios from 'axios'
+import LS from '../../utils/local-storage'
 
 interface AuthContext {
   user?: string | null
@@ -21,7 +23,19 @@ const events = {
 // SERVICES
 
 const login = async (ctx: any, evt: any) => {
-  return axios.post('http://localhost:4000/api/user', { email: evt.payload })
+  console.log({ login: evt })
+  const { email, password } = evt.payload
+  return Auth.signIn(email, password)
+}
+
+const signup = async (ctx: any, evt: any) => {
+  console.log({ signup: evt })
+  const { email, password } = evt.payload
+  return Auth.signUp(email, password)
+}
+
+const logout = async (ctx: any, evt: any) => {
+  return Auth.signOut()
 }
 
 // OPTIONS
@@ -29,10 +43,12 @@ const login = async (ctx: any, evt: any) => {
 const authOpts = {
   services: {
     login,
+    signup,
+    logout,
   },
   actions: {
     removeUser: assign(() => {
-      localStorage.removeItem('simple_message:user')
+      LS.setItem('app:user', null)
       return {
         user: undefined,
       }
@@ -41,21 +57,39 @@ const authOpts = {
       error: null,
     }),
     saveUser: assign((ctx, evt: any) => {
-      localStorage.setItem('simple_message:user', JSON.stringify(evt.data.data))
+      console.log({ savedUser: evt })
+      LS.setItem('app:user', evt.data)
 
       return {
         user: evt.payload,
       }
     }),
     cacheError: assign((ctx, evt: any) => {
+      console.log({ error: evt })
+
       return {
-        error: evt.data.response.status,
+        error: evt.data?.message,
+      }
+    }),
+    cacheUser: assign((ctx, evt: any) => {
+      console.log({ cachedUser: evt })
+      LS.setItem('app:user', evt.data)
+
+      return {
+        user: evt.payload,
       }
     }),
   },
   guards: {
     isLoggedIn: (ctx: AuthContext) => {
+      console.log({ user: ctx.user })
       return Boolean(ctx.user)
+    },
+    onLoginPage: (ctx: AuthContext) => {
+      return window?.location.pathname === '/login'
+    },
+    onSignupPage: (ctx: AuthContext) => {
+      return window?.location.pathname === '/signup'
     },
   },
 }
@@ -77,7 +111,12 @@ const authMachine = Machine<any>(
               target: 'loggedIn',
             },
             {
+              cond: 'onLoginPage',
               target: 'login',
+            },
+            {
+              cond: 'onSignupPage',
+              target: 'signup',
             },
           ],
         },
@@ -113,6 +152,37 @@ const authMachine = Machine<any>(
           },
         },
       },
+      signup: {
+        id: 'signup',
+        initial: 'idle',
+        states: {
+          idle: {
+            on: {
+              [events.SUBMIT]: 'fetching',
+            },
+          },
+          fetching: {
+            invoke: {
+              id: 'auth',
+              src: 'signup',
+              onDone: {
+                target: '#loggedIn',
+                actions: ['cacheUser'],
+              },
+              onError: {
+                target: 'error',
+                actions: ['cacheError'],
+              },
+            },
+          },
+          error: {
+            on: {
+              [events.SUBMIT]: 'fetching',
+            },
+            exit: 'removeError',
+          },
+        },
+      },
       loggedIn: {
         id: 'loggedIn',
         on: {
@@ -120,10 +190,16 @@ const authMachine = Machine<any>(
         },
       },
       loggingOut: {
-        on: {
-          '': {
-            target: '#login',
+        id: 'loggingOut',
+        invoke: {
+          id: 'logout',
+          src: 'logout',
+          onDone: {
+            target: 'init',
             actions: ['removeUser'],
+          },
+          onError: {
+            target: 'login',
           },
         },
       },

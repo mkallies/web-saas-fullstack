@@ -9,32 +9,35 @@ import {
   FormErrorMessage,
 } from '@chakra-ui/core'
 import { useFormik } from 'formik'
+import { Auth } from 'aws-amplify'
 import { useUserService } from './user.service'
 
-const Login = () => {
+const Confirmation = () => {
   const { onLogin, currentState } = useUserService()
 
   const formik = useFormik({
     initialValues: {
       email: '',
-      password: '',
+      confirmationCode: '',
     },
-    onSubmit: values => {
-      console.log({ values })
-      onLogin({ email: values.email, password: values.password })
+    onSubmit: async values => {
+      try {
+        const user = await Auth.confirmSignUp(
+          values.email,
+          values.confirmationCode
+        )
+        console.log({ user })
+      } catch (error) {
+        console.log({ error })
+      }
     },
   })
 
   return (
     <Stack width="100%" maxWidth="md">
-      <Heading textAlign="center">Login</Heading>
+      <Heading textAlign="center">Confirmation</Heading>
       <Stack mt={5} borderWidth="1px" rounded="md" py={3} px={5}>
-        <FormControl
-          my={6}
-          as="form"
-          isInvalid={Boolean(currentState.context.error)}
-          onSubmit={formik.handleSubmit}
-        >
+        <FormControl my={6} as="form" onSubmit={formik.handleSubmit}>
           <FormLabel htmlFor="email">Email</FormLabel>
           <Input
             variant="flushed"
@@ -43,18 +46,17 @@ const Login = () => {
             onChange={formik.handleChange}
             value={formik.values.email}
           />
-          <FormLabel htmlFor="password">Password</FormLabel>
+
+          <FormLabel htmlFor="email">Confirmation Code</FormLabel>
           <Input
             variant="flushed"
-            type="password"
-            id="password"
+            type="text"
+            id="confirmationCode"
             onChange={formik.handleChange}
-            value={formik.values.password}
+            value={formik.values.confirmationCode}
           />
-          <FormErrorMessage>{currentState.context.error}</FormErrorMessage>
-
           <Button variantColor="teal" mt={5} type="submit">
-            Submit
+            Verify
           </Button>
         </FormControl>
       </Stack>
@@ -62,4 +64,4 @@ const Login = () => {
   )
 }
 
-export default Login
+export default Confirmation

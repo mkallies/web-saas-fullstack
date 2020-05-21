@@ -29,3 +29,5 @@ npx degit mkallies/web-saas-fullstack <folder-name>
 Frontend
 
 - [] Change gatsby-config site data
+- [] Change client only route prefix in gatsby-config (currently set to /notes)
+- [] Change folder 'notes' under pages to what the client only routes will be (dashboard, app, etc)

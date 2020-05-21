@@ -13,4 +13,5 @@ export default {
     APP_CLIENT_ID: process.env.GATSBY_COGNITO_APP_CLIENT_ID,
     IDENTITY_POOL_ID: process.env.GATSBY_IDENTITY_POOL_ID,
   },
+  STRIPE_KEY: process.env.GATSBY_STRIPE_KEY,
 }
