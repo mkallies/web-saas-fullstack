@@ -1008,14 +1008,7 @@
   dependencies:
     "@hapi/hoek" "8.x.x"
 
-"@hapi/boom@7.x.x":
-  version "7.4.3"
-  resolved "https://registry.yarnpkg.com/@hapi/boom/-/boom-7.4.3.tgz#79ffed6ef8c625046a3bd069abed5a9d35fc50c1"
-  integrity sha512-3di+R+BcGS7HKy67Zi6mIga8orf67GdR0ubDEVBG1oqz3y9B70LewsuCMCSvWWLKlI6V1+266zqhYzjMrPGvZw==
-  dependencies:
-    "@hapi/hoek" "8.x.x"
-
-"@hapi/boom@^7.4.11":
+"@hapi/boom@7.x.x", "@hapi/boom@^7.4.11":
   version "7.4.11"
   resolved "https://registry.yarnpkg.com/@hapi/boom/-/boom-7.4.11.tgz#37af8417eb9416aef3367aa60fa04a1a9f1fc262"
   integrity sha512-VSU/Cnj1DXouukYxxkes4nNJonCnlogHvIff1v1RVoN4xzkKhMXX+GRmb3NyH1iar10I9WFPDv2JPwfH3GaV0A==
@@ -7906,17 +7899,7 @@ jsprim@^1.2.2:
     json-schema "0.2.3"
     verror "1.10.0"
 
-jszip@^3.2.2:
-  version "3.2.2"
-  resolved "https://registry.yarnpkg.com/jszip/-/jszip-3.2.2.tgz#b143816df7e106a9597a94c77493385adca5bd1d"
-  integrity sha512-NmKajvAFQpbg3taXQXr/ccS2wcucR1AZ+NtyWp2Nq7HHVsXhcJFR8p0Baf32C2yVvBylFWVeKf+WI2AnvlPhpA==
-  dependencies:
-    lie "~3.3.0"
-    pako "~1.0.2"
-    readable-stream "~2.3.6"
-    set-immediate-shim "~1.0.1"
-
-jszip@^3.3.0:
+jszip@^3.2.2, jszip@^3.3.0:
   version "3.4.0"
   resolved "https://registry.yarnpkg.com/jszip/-/jszip-3.4.0.tgz#1a69421fa5f0bb9bc222a46bca88182fba075350"
   integrity sha512-gZAOYuPl4EhPTXT0GjhI3o+ZAz3su6EhLrKUoAivcKqyqC7laS5JEv4XWZND9BgcDcF83vI85yGbDmDR6UhrIg==
@@ -10660,10 +10643,10 @@ serverless-dotenv-plugin@^2.4.2:
     dotenv "^8.2.0"
     dotenv-expand "^5.1.0"
 
-serverless-offline@^6.1.4:
-  version "6.1.4"
-  resolved "https://registry.yarnpkg.com/serverless-offline/-/serverless-offline-6.1.4.tgz#506662526fdd9d640de5bf802573171ce0df67a3"
-  integrity sha512-HDvFlPFZA0Pwr3EqS6bQ0zakxcF94+GyEJNM8TRsneOqDr1Wx6kFxBt5cCCzkCUt5RVsmFoHBSAu942N5XVEUg==
+serverless-offline@^6.1.5:
+  version "6.1.5"
+  resolved "https://registry.yarnpkg.com/serverless-offline/-/serverless-offline-6.1.5.tgz#50544e96737e0a325ba0d68e96733ed119f28532"
+  integrity sha512-Shm2/oEaH0Bg2qztTjiiEX//BoQxYpj+/CPqzmVVBYKbatVrUbYDHx2H3ka4bfzwIeDrcsCK/oUGcWrIAjPM1g==
   dependencies:
     "@hapi/boom" "^7.4.11"
     "@hapi/h2o2" "^8.3.2"
