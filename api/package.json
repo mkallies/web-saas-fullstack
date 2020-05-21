@@ -13,7 +13,7 @@
     "test:watch": "jest --watch"
   },
   "devDependencies": {
-    "aws-sdk": "^2.660.0",
+    "aws-sdk": "^2.678.0",
     "babel-eslint": "^10.1.0",
     "eslint": "^6.8.0",
     "eslint-config-airbnb": "^18.1.0",
@@ -22,20 +22,20 @@
     "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-prettier": "^3.1.3",
     "husky": "^4.2.5",
-    "jest": "^25.4.0",
-    "lint-staged": "^10.1.7",
-    "nodemon": "^2.0.3",
+    "jest": "^26.0.1",
+    "lint-staged": "^10.2.4",
+    "nodemon": "^2.0.4",
     "prettier": "^2.0.5",
     "serverless": "^1.67.3",
     "serverless-bundle": "^1.4.0",
     "serverless-dotenv-plugin": "^2.4.2",
-    "serverless-offline": "^6.1.4",
+    "serverless-offline": "^6.1.5",
     "serverless-plugin-warmup": "^4.9.0",
-    "serverless-prune-plugin": "^1.4.2"
+    "serverless-prune-plugin": "^1.4.3"
   },
   "dependencies": {
-    "stripe": "^8.44.0",
-    "uuid": "^7.0.3"
+    "stripe": "^8.52.0",
+    "uuid": "^8.0.0"
   },
   "husky": {
     "hooks": {
