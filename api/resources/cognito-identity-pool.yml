@@ -1,4 +1,8 @@
 Resources:
+  # Use an identity pool when you need to:
+  # - Give users access to AWS resources like S3 or a DynamoDB table
+  # - Generate temp AWS credentials for unauthenticated users
+
   # The federated identity for our user pool to auth with
   CognitoIdentityPool:
     Type: AWS::Cognito::IdentityPool

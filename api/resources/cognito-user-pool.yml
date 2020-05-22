@@ -1,4 +1,6 @@
 Resources:
+  # Can think of this as a user directory
+  # Configure certain security aspects like MFA, password requirements, etc.
   CognitoUserPool:
     Type: AWS::Cognito::UserPool
     Properties:
@@ -10,6 +12,8 @@ Resources:
       AutoVerifiedAttributes:
         - email
 
+  # Allows a client (web, mobile) to issue requests to Cognito APIs
+  # APIs such as signup, login, forgot password etc...
   CognitoUserPoolClient:
     Type: AWS::Cognito::UserPoolClient
     Properties:
