@@ -28,7 +28,7 @@
     "react-icons": "^3.10.0",
     "react-use": "^14.2.0",
     "xstate": "^4.8.0",
-    "yup": "^0.28.4"
+    "yup": "^0.29.3"
   },
   "devDependencies": {
     "@testing-library/cypress": "^6.0.0",
