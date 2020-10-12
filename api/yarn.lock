@@ -11443,10 +11443,10 @@ strip-outer@^1.0.0:
   dependencies:
     escape-string-regexp "^1.0.2"
 
-stripe@^8.52.0:
-  version "8.52.0"
-  resolved "https://registry.yarnpkg.com/stripe/-/stripe-8.52.0.tgz#332860b2c43b1c6c526d778c7aacad894b8a836b"
-  integrity sha512-3Olq0EYmNU2aQ5j6rinWxfoRzaYW83k8wgNImmF9HgKi+SR85lplncO8sEq1jju5AnHzx2DO0/tJSic8jQ9PCQ==
+stripe@^8.109.0:
+  version "8.109.0"
+  resolved "https://registry.yarnpkg.com/stripe/-/stripe-8.109.0.tgz#8b7273686d0eedd8d4b865af6518486794b27301"
+  integrity sha512-nIumYKea04WXIFfzdPcpzozU93kx5iA5wyMrMM/hHZS1tWQ9T4I7bddpH8w6mJS0LoOEnDRmXvPZlJ+tyYL2EQ==
   dependencies:
     "@types/node" ">=8.1.0"
     qs "^6.6.0"
