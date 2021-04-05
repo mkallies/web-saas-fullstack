@@ -34,7 +34,7 @@
     "serverless-prune-plugin": "^1.4.3"
   },
   "dependencies": {
-    "stripe": "^8.52.0",
+    "stripe": "^8.142.0",
     "uuid": "^8.0.0"
   },
   "husky": {
